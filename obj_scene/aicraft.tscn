@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://classes/aircraft.gd" type="Script" id=1]
+[ext_resource path="res://classes/wheel.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.4
+
+[sub_resource type="PhysicsMaterial" id=3]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 1.5
+
+[node name="aicraft" type="RigidBody2D"]
+input_pickable = true
+collision_layer = 4
+mass = 260.0
+physics_material_override = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="bodyCollShape" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -40, 0.5, -12.5, 2.55, 5, 3, 14.5621, 0.228151, 14.75, -1.325, 5.21827, -2.94209, 2.38174, -5.44492, -5.79416, -5.61177, -12.9689, -3.2758, -40, -0.5 )
+
+[node name="rudder" type="Polygon2D" parent="."]
+position = Vector2( -40, 0 )
+antialiased = true
+polygon = PoolVector2Array( -0.764137, 0.044466, 9.53684, -0.901543, 4.6725, -8.44831, 1.16855, -9.44944 )
+
+[node name="elevator" type="Polygon2D" parent="."]
+position = Vector2( -40, 0 )
+antialiased = true
+polygon = PoolVector2Array( 0, 0.5, 1, 0, 0, -0.5, -5, 0 )
+
+[node name="suspension" type="Node2D" parent="."]
+position = Vector2( 4, 10 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="suspension"]
+node_a = NodePath("../..")
+node_b = NodePath("../wheel")
+softness = 0.01
+
+[node name="wheel" type="RigidBody2D" parent="suspension"]
+collision_layer = 2
+mass = 2.0
+physics_material_override = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="wheelCollShape" type="CollisionShape2D" parent="suspension/wheel"]
+shape = SubResource( 4 )
+
+[node name="rearSuspension" type="Node2D" parent="."]
+position = Vector2( -38, 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="rearSuspension"]
+node_a = NodePath("../..")
+node_b = NodePath("../rearWheel")
+
+[node name="rearWheel" type="RigidBody2D" parent="rearSuspension"]
+collision_layer = 2
+mass = 0.5
+physics_material_override = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="wheelCollShape" type="CollisionShape2D" parent="rearSuspension/rearWheel"]
+shape = SubResource( 5 )
