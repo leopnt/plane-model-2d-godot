@@ -8,6 +8,20 @@ The model isn't intended to be 💯% accurate. I just made it coherent and playa
 ![main view](presentation_imgs/main_view.png)
 
 
+## The diagrams that explain it all
+They are inverted but you get the idea
+
+![Aerodynamic forces diagram](https://upload.wikimedia.org/wikipedia/commons/d/d7/Lift-force-en.svg)
+
+Note that aerodynamic forces apply on the center of lift where other ones apply on the center of mass. This is necessary for the plane stability: he will constantly try to align itself with his own velocity
+
+In Godot, you can offset the point where you apply the force with ```apply_impulse(offset, force)```
+
+Don't forget to rotate the offset! (That was my biggest mistake that took me a lot headaches 😌) ```apply_impulse(offset.rotated(rotation), force)``` Or the force will not apply at the right point. Of course, it has to follow the plane rotation...
+
+![Center of pressure and center of mass](https://www.skybrary.aero/images/3/36/LiftDrag.png)
+
+
 ## CREDITS
 
 ### Font
