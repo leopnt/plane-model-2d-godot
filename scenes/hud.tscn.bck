@@ -25,12 +25,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 1 )
-nb_of_graduation = 10
-scale = 100.0
+nb_of_graduation = 1
+scale = 200.0
 initial_axis = Vector2( 1, 0 )
 show_big_needle = false
-angle_from = -120
-angle_to = 120
 displayed_info = 2
 
 [node name="Label" type="Label" parent="gmeter"]
@@ -58,12 +56,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 1 )
-nb_of_graduation = 2
+nb_of_graduation = 1
 scale = 1000.0
 initial_axis = Vector2( 1, 0 )
 show_big_needle = false
-angle_from = -45
-angle_to = 45
 displayed_info = 3
 
 [node name="Label" type="Label" parent="aoa"]
@@ -82,7 +78,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 646.0
+margin_left = 730.0
 margin_top = 410.0
 margin_right = 984.0
 margin_bottom = 560.0
@@ -93,48 +89,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vertical_speed" type="Panel" parent="HBoxContainer"]
-margin_top = 70.0
-margin_right = 80.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 80, 80 )
-size_flags_horizontal = 4
-size_flags_vertical = 8
-custom_styles/panel = ExtResource( 2 )
-script = ExtResource( 1 )
-nb_of_graduation = 4
-initial_axis = Vector2( 1, 0 )
-show_big_needle = false
-angle_from = -90
-angle_to = 90
-displayed_info = 4
-
-[node name="Label" type="Label" parent="HBoxContainer/vertical_speed"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -28.0
-margin_top = -12.0
-margin_right = 28.0
-text = "V Speed"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Altimeter" type="Panel" parent="HBoxContainer"]
-margin_left = 84.0
 margin_top = 50.0
-margin_right = 184.0
+margin_right = 100.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 0
 size_flags_vertical = 8
 custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 1 )
-scale = 1.0
 
 [node name="Label" type="Label" parent="HBoxContainer/Altimeter"]
 anchor_left = 0.5
@@ -147,13 +110,10 @@ margin_right = 50.0
 text = "Altimeter"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AirspeedIndicator" type="Panel" parent="HBoxContainer"]
-margin_left = 188.0
-margin_right = 338.0
+margin_left = 104.0
+margin_right = 254.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 8
